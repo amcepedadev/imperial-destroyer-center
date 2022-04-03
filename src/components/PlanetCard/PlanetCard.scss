@@ -1,0 +1,39 @@
+.PlanetCardMainContainer {
+  padding: 2%;
+  margin: 2%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.PlanetCardImage {
+ object-fit: cover;
+}
+
+.PlanetCardInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PlanetCardLeftInfo {
+  text-align: left;
+}
+
+.PlanetCardPlanetName {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.PlanetCardPlanetTerrain {
+  color: gray;
+  font-weight: bold;
+}
+
+.PlanetCardRightInfo {
+
+}
+
+.PlanetCardUserIcon{
+  font-size: 30px;
+}

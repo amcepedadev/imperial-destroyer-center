@@ -1,36 +1,29 @@
 import React, { useEffect } from 'react';
-import { from, until, useMediaQuery } from '../../hooks/media';
+import Layout from '../../components/Layout/Layout';
+import PlanetCard from '../../components/PlanetCard/PlanetCard';
+import { until, useMediaQuery } from '../../hooks/media';
 import usePlanets from '../../hooks/planets';
 
 export default function Home() {
   const {planets} = usePlanets("/");
   const isMobile = useMediaQuery(until.mobile);
   const isTablet = useMediaQuery(until.tablet) && !isMobile;
-  const isDesktop = useMediaQuery(from.desktop);
-
+  const isDesktop = !isMobile && !isTablet;
 
   useEffect(() => {
     console.log("planets",planets)
   
   }, [planets])
-  
-
- 
-  
 
   return (
-    <div>
-      HomeScreen
-      {isMobile && <div>Mobile</div>}
-      {isTablet && <div>Tablet</div>}
-      {isDesktop && <div>Desktop</div>}
+    <Layout>
       {planets && Array.isArray(planets) && planets.length>0 ? 
        planets.map((planet: any) => {
-         return <div>{planet.name}</div>
+         return <PlanetCard planet={planet} />
        })
       
       :
       <div>Loading</div>}
-    </div>
+    </Layout>
   );
 }
